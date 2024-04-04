@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // You may need to install '@expo/vector-icons'
 import CustomButtonA from "../components/UI/CustomButtonA";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const AuthScreen = () => {
   const [authState, setAuthState] = useState("login");
@@ -16,13 +17,15 @@ const AuthScreen = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={styles.screen}>
-      <Image source={require("../assets/images/Residently Logo.png")} />
-      <Text>Welcome!</Text>
-      <Text>
-        Sign up or log in to your account to manage access to your users
-        smartly.
-      </Text>
+    <SafeAreaView style={styles.screen}>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Image source={require("../assets/images/Residently Logo.png")} />
+        <Text>Welcome!</Text>
+        <Text>
+          Sign up or log in to your account to manage access to your users
+          smartly.
+        </Text>
+      </View>
       <View style={styles.container}>
         {/* Email Field */}
         <View style={styles.inputContainer}>
@@ -69,7 +72,7 @@ const AuthScreen = () => {
           <Text>{authState == "login" ? "Sign up" : "Login"}</Text> instead
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -78,6 +81,9 @@ export default AuthScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    // justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
   },
   container: {
     justifyContent: "center",
@@ -98,6 +104,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    height: 54,
   },
   forgotText: {
     color: "blue",
