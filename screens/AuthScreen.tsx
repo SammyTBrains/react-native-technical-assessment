@@ -18,52 +18,22 @@ const AuthScreen = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <View
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: 60,
-        }}
-      >
+      <View style={styles.pageTopSectionContainer}>
         <Image
           source={require("../assets/images/Residently Logo.png")}
-          style={{ marginBottom: 42 }}
+          style={styles.logoImage}
         />
-        <Text
-          style={{
-            color: "#322B8C",
-            fontWeight: "bold",
-            fontSize: 32,
-            marginBottom: 14,
-          }}
-        >
-          Welcome!
-        </Text>
-        <Text
-          style={{
-            color: "#6E717C",
-            fontSize: 16,
-            textAlign: "center",
-            marginBottom: 5,
-          }}
-        >
+        <Text style={styles.topText}>Welcome!</Text>
+        <Text style={styles.infoText}>
           Sign up or log in to your account to
         </Text>
-        <Text
-          style={{
-            color: "#6E717C",
-            fontSize: 16,
-            textAlign: "center",
-            marginBottom: 5,
-          }}
-        >
+        <Text style={styles.infoText}>
           manage access to your users smartly.
         </Text>
       </View>
       <View style={styles.formContainer}>
-        {/* Email Field */}
         <View style={styles.inputContainer}>
-          <Ionicons name="mail" size={20} color="#aaa" style={styles.icon} />
+          <Ionicons name="mail" size={22} color="#aaa" style={styles.icon} />
           <TextInput
             style={styles.input}
             placeholder="Email address"
@@ -73,12 +43,10 @@ const AuthScreen = () => {
             keyboardType="email-address"
           />
         </View>
-
-        {/* Password Field */}
         <View style={styles.inputContainer}>
           <Ionicons
             name="lock-closed"
-            size={20}
+            size={22}
             color="#aaa"
             style={styles.icon}
           />
@@ -99,8 +67,8 @@ const AuthScreen = () => {
         {authState == "login" ? "Login" : "Sign up"}
       </CustomButtonA>
 
-      <Text style={{ fontSize: 14, marginTop: 10 }}>
-        <Text style={{ color: "#FF8600", fontSize: 14 }}>
+      <Text style={styles.authStateText}>
+        <Text style={styles.authStateButtonText}>
           {authState == "login" ? "Sign up" : "Login"}
         </Text>{" "}
         instead
@@ -117,11 +85,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
+  pageTopSectionContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 60,
+  },
+  logoImage: { marginBottom: 42 },
+  infoText: {
+    color: "#6E717C",
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 5,
+  },
+  topText: {
+    color: "#322B8C",
+    fontWeight: "bold",
+    fontSize: 32,
+    marginBottom: 14,
+  },
   formContainer: {
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    marginVertical: 15,
+    marginBottom: 15,
   },
   inputContainer: {
     flexDirection: "row",
@@ -145,4 +131,6 @@ const styles = StyleSheet.create({
     color: "#FF8600",
     fontSize: 14,
   },
+  authStateText: { fontSize: 14, marginTop: 10 },
+  authStateButtonText: { color: "#FF8600", fontSize: 14 },
 });
