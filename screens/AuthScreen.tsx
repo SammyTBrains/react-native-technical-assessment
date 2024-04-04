@@ -66,13 +66,14 @@ const AuthScreen = () => {
       <CustomButtonA onPress={() => {}}>
         {authState == "login" ? "Login" : "Sign up"}
       </CustomButtonA>
-
-      <Text style={styles.authStateText}>
-        <Text style={styles.authStateButtonText}>
-          {authState == "login" ? "Sign up" : "Login"}
-        </Text>{" "}
-        instead
-      </Text>
+      <View style={styles.authStateContainer}>
+        <TouchableOpacity>
+          <Text style={styles.authStateButtonText}>
+            {authState == "login" ? "Sign up" : "Login"}
+          </Text>
+        </TouchableOpacity>
+        <Text style={styles.authStateText}> instead</Text>
+      </View>
     </SafeAreaView>
   );
 };
@@ -131,6 +132,18 @@ const styles = StyleSheet.create({
     color: "#FF8600",
     fontSize: 14,
   },
-  authStateText: { fontSize: 14, marginTop: 10 },
-  authStateButtonText: { color: "#FF8600", fontSize: 14 },
+
+  authStateContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+  },
+  authStateText: {
+    fontSize: 14,
+  },
+  authStateButtonText: {
+    color: "#FF8600",
+    fontSize: 14,
+  },
 });
