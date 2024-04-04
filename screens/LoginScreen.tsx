@@ -1,7 +1,17 @@
-import { Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const LoginScreen = () => {
-  return <Text>Login Screen</Text>;
+  return (
+    <View style={styles.screen}>
+      <Text>Login Screen</Text>
+    </View>
+  );
 };
 
 export default LoginScreen;
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+});
