@@ -12,15 +12,25 @@ import { Ionicons } from "@expo/vector-icons"; // You may need to install '@expo
 import CustomButtonA from "../components/UI/CustomButtonA";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootNavParamList } from "../type-utilities/type";
+
 type FormData = {
   email: string;
   password: string;
 };
 
-const AuthScreen = () => {
+type UsersScreenScreenNavigationProp = NativeStackNavigationProp<
+  RootNavParamList,
+  "UsersScreen"
+>;
+
+type AuthScreenProps = {
+  navigation: UsersScreenScreenNavigationProp;
+};
+
+const AuthScreen = (props: AuthScreenProps) => {
   const [authState, setAuthState] = useState("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const {
     control,
@@ -32,7 +42,7 @@ const AuthScreen = () => {
       password: "",
     },
   });
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => props.navigation.navigate("UsersScreen");
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -95,6 +105,7 @@ const AuthScreen = () => {
                 value: true,
                 message: "This is required.",
               },
+              minLength: { value: 4, message: "Password too short." },
               maxLength: { value: 12, message: "Password too long." },
             }}
             render={({ field: { onChange, onBlur, value } }) => (
