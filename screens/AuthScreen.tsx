@@ -55,7 +55,14 @@ const AuthScreen = () => {
           <Controller
             control={control}
             rules={{
-              required: true,
+              required: {
+                value: true,
+                message: "This is required.",
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Invalid email address.",
+              },
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
@@ -70,8 +77,10 @@ const AuthScreen = () => {
             )}
             name="email"
           />
-          {errors.email && <Text>This is required.</Text>}
         </View>
+        {errors.email && (
+          <Text style={styles.errorText}>{errors.email.message}</Text>
+        )}
         <View style={styles.inputContainer}>
           <Ionicons
             name="lock-closed"
@@ -82,7 +91,11 @@ const AuthScreen = () => {
           <Controller
             control={control}
             rules={{
-              maxLength: 12,
+              required: {
+                value: true,
+                message: "This is required.",
+              },
+              maxLength: { value: 12, message: "Password too long." },
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
@@ -100,6 +113,9 @@ const AuthScreen = () => {
             <Text style={styles.forgotText}>Forgot?</Text>
           </TouchableOpacity>
         </View>
+        {errors.password && (
+          <Text style={styles.errorText}>{errors.password.message}</Text>
+        )}
       </View>
       {/* <Button title="Submit"  /> */}
       <CustomButtonA onPress={handleSubmit(onSubmit)}>
@@ -185,5 +201,8 @@ const styles = StyleSheet.create({
   authStateButtonText: {
     color: "#FF8600",
     fontSize: 14,
+  },
+  errorText: {
+    color: "red",
   },
 });
