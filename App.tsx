@@ -21,10 +21,15 @@ export default function App() {
               name="LoginScreen"
               component={AuthScreen}
               options={{
+                title: "Authentication",
                 headerShown: false,
               }}
             />
-            <Stack.Screen name="UsersScreen" component={UsersScreen} />
+            <Stack.Screen
+              name="UsersScreen"
+              component={UsersScreen}
+              options={{ title: "Users" }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
