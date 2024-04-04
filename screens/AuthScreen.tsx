@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#EFF2F7",
     borderRadius: 16,
     marginVertical: 10,
     paddingHorizontal: 15,
@@ -141,6 +141,7 @@ const styles = StyleSheet.create({
   },
   authStateText: {
     fontSize: 14,
+    color: "#6E717C",
   },
   authStateButtonText: {
     color: "#FF8600",
