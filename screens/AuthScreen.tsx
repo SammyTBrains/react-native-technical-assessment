@@ -93,16 +93,13 @@ const AuthScreen = () => {
             <Text style={styles.forgotText}>Forgot?</Text>
           </TouchableOpacity>
         </View>
-
-        {/* Login Button */}
-        {/* <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Login</Text>
-        </TouchableOpacity> */}
       </View>
+
       <CustomButtonA onPress={() => {}}>
         {authState == "login" ? "Login" : "Sign up"}
       </CustomButtonA>
-      <Text style={{ fontSize: 14 }}>
+
+      <Text style={{ fontSize: 14, marginTop: 10 }}>
         <Text style={{ color: "#FF8600", fontSize: 14 }}>
           {authState == "login" ? "Sign up" : "Login"}
         </Text>{" "}
@@ -147,16 +144,5 @@ const styles = StyleSheet.create({
   forgotText: {
     color: "#FF8600",
     fontSize: 14,
-  },
-  loginButton: {
-    backgroundColor: "#FF8600",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  loginButtonText: {
-    color: "white",
-    fontSize: 16,
   },
 });
