@@ -18,21 +18,55 @@ const AuthScreen = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Image source={require("../assets/images/Residently Logo.png")} />
-        <Text>Welcome!</Text>
-        <Text>
-          Sign up or log in to your account to manage access to your users
-          smartly.
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 60,
+        }}
+      >
+        <Image
+          source={require("../assets/images/Residently Logo.png")}
+          style={{ marginBottom: 42 }}
+        />
+        <Text
+          style={{
+            color: "#322B8C",
+            fontWeight: "bold",
+            fontSize: 32,
+            marginBottom: 14,
+          }}
+        >
+          Welcome!
+        </Text>
+        <Text
+          style={{
+            color: "#6E717C",
+            fontSize: 16,
+            textAlign: "center",
+            marginBottom: 5,
+          }}
+        >
+          Sign up or log in to your account to
+        </Text>
+        <Text
+          style={{
+            color: "#6E717C",
+            fontSize: 16,
+            textAlign: "center",
+            marginBottom: 5,
+          }}
+        >
+          manage access to your users smartly.
         </Text>
       </View>
-      <View style={styles.container}>
+      <View style={styles.formContainer}>
         {/* Email Field */}
         <View style={styles.inputContainer}>
           <Ionicons name="mail" size={20} color="#aaa" style={styles.icon} />
           <TextInput
             style={styles.input}
-            placeholder="Email"
+            placeholder="Email address"
             value={email}
             onChangeText={setEmail}
             autoCapitalize="none"
@@ -64,14 +98,16 @@ const AuthScreen = () => {
         {/* <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity> */}
-
-        <CustomButtonA onPress={() => {}}>
-          {authState == "login" ? "Login" : "Sign up"}
-        </CustomButtonA>
-        <Text>
-          <Text>{authState == "login" ? "Sign up" : "Login"}</Text> instead
-        </Text>
       </View>
+      <CustomButtonA onPress={() => {}}>
+        {authState == "login" ? "Login" : "Sign up"}
+      </CustomButtonA>
+      <Text style={{ fontSize: 14 }}>
+        <Text style={{ color: "#FF8600", fontSize: 14 }}>
+          {authState == "login" ? "Sign up" : "Login"}
+        </Text>{" "}
+        instead
+      </Text>
     </SafeAreaView>
   );
 };
@@ -81,23 +117,24 @@ export default AuthScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    // justifyContent: "center",
     alignItems: "center",
     padding: 20,
   },
-  container: {
+  formContainer: {
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
+    marginVertical: 15,
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 5,
+    borderRadius: 16,
     marginVertical: 10,
     paddingHorizontal: 15,
+    backgroundColor: "#F9FAFC",
   },
   icon: {
     marginRight: 10,
@@ -105,12 +142,14 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 54,
+    backgroundColor: "#F9FAFC",
   },
   forgotText: {
-    color: "blue",
+    color: "#FF8600",
+    fontSize: 14,
   },
   loginButton: {
-    backgroundColor: "blue",
+    backgroundColor: "#FF8600",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     margin: 4,
-    backgroundColor: Colors.primary800,
+    backgroundColor: "#FF8600",
     elevation: 2,
     shadowColor: "black",
     shadowOpacity: 0.15,
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     fontSize: 16,
-    color: Colors.primary50,
+    color: "white",
   },
 });

@@ -14,7 +14,9 @@ export default function App() {
       <StatusBar style="dark" />
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{ contentStyle: { backgroundColor: "#FFFFFF" } }}
+          >
             <Stack.Screen
               name="LoginScreen"
               component={AuthScreen}
