@@ -117,7 +117,6 @@ const AuthScreen = () => {
           <Text style={styles.errorText}>{errors.password.message}</Text>
         )}
       </View>
-      {/* <Button title="Submit"  /> */}
       <CustomButtonA onPress={handleSubmit(onSubmit)}>
         {authState == "login" ? "Login" : "Sign up"}
       </CustomButtonA>
