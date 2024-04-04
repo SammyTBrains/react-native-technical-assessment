@@ -7,14 +7,32 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 import { Ionicons } from "@expo/vector-icons"; // You may need to install '@expo/vector-icons'
 import CustomButtonA from "../components/UI/CustomButtonA";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+type FormData = {
+  email: string;
+  password: string;
+};
 
 const AuthScreen = () => {
   const [authState, setAuthState] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const onSubmit = (data: FormData) => console.log(data);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -34,14 +52,25 @@ const AuthScreen = () => {
       <View style={styles.formContainer}>
         <View style={styles.inputContainer}>
           <Ionicons name="mail" size={22} color="#aaa" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Email address"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
+          <Controller
+            control={control}
+            rules={{
+              required: true,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={styles.input}
+                placeholder="Email address"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                autoCapitalize="none"
+                keyboardType="email-address"
+              />
+            )}
+            name="email"
           />
+          {errors.email && <Text>This is required.</Text>}
         </View>
         <View style={styles.inputContainer}>
           <Ionicons
@@ -50,20 +79,30 @@ const AuthScreen = () => {
             color="#aaa"
             style={styles.icon}
           />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
+          <Controller
+            control={control}
+            rules={{
+              maxLength: 12,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                secureTextEntry
+              />
+            )}
+            name="password"
           />
           <TouchableOpacity onPress={() => alert("Forgot password?")}>
             <Text style={styles.forgotText}>Forgot?</Text>
           </TouchableOpacity>
         </View>
       </View>
-
-      <CustomButtonA onPress={() => {}}>
+      {/* <Button title="Submit"  /> */}
+      <CustomButtonA onPress={handleSubmit(onSubmit)}>
         {authState == "login" ? "Login" : "Sign up"}
       </CustomButtonA>
       <View style={styles.authStateContainer}>
