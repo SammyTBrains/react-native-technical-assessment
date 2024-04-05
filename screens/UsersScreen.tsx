@@ -22,8 +22,8 @@ const UsersScreen = () => {
     getData();
   }, []);
 
-  const renderUserData = (data: UserDataType) => (
-    <UserComponent data={data.name} />
+  const renderUserData = (itemData: { data: UserDataType }) => (
+    <UserComponent data={itemData.data.name} />
   );
 
   return (
