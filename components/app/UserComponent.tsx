@@ -9,18 +9,14 @@ type Props = {
 
 const UserComponent = (props: Props) => {
   function getInitials(fullName: string) {
-    // Split the full name by the space character
     const names = fullName.split(" ");
 
-    // Extract the first and last names
     const firstName = names[0];
     const lastName = names.length > 1 ? names[names.length - 1] : "";
 
-    // Get the first character of each name and convert to uppercase
     const firstInitial = firstName ? firstName[0] : "";
     const lastInitial = lastName ? lastName[0] : "";
 
-    // Concatenate and return the initials
     return `${firstInitial}${lastInitial}`.toUpperCase();
   }
 
