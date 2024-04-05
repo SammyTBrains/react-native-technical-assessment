@@ -16,7 +16,7 @@ const UserComponent = (props: Props) => {
       <View
         style={[
           styles.statusContainer,
-          { backgroundColor: props.status === "Active" ? "#c3ea9c" : "" },
+          { backgroundColor: props.status === "Active" ? "#E1EAD6" : "" },
         ]}
       >
         <Text style={{ color: props.status === "Active" ? "#7A9F56" : "" }}>
