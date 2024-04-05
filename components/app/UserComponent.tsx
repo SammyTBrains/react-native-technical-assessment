@@ -13,8 +13,15 @@ const UserComponent = (props: Props) => {
         <Text style={styles.topText}>{props.data.username}</Text>
         <Text style={styles.secondText}>{props.data.name}</Text>
       </View>
-      <View style={styles.statusContainer}>
-        <Text>{props.status}</Text>
+      <View
+        style={[
+          styles.statusContainer,
+          { backgroundColor: props.status === "Active" ? "#c3ea9c" : "" },
+        ]}
+      >
+        <Text style={{ color: props.status === "Active" ? "#7A9F56" : "" }}>
+          {props.status}
+        </Text>
       </View>
     </View>
   );
