@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import axios from "axios";
 import UserComponent from "../components/app/UserComponent";
 import { UserDataType } from "../type-utilities/type";
 
 const UsersScreen = () => {
   const [data, setData] = useState([]);
+
+  let status = false;
 
   useEffect(() => {
     const getData = async () => {
@@ -22,17 +24,34 @@ const UsersScreen = () => {
     getData();
   }, []);
 
-  const renderUserData = (itemData: { item: UserDataType }) => (
-    <UserComponent data={itemData.item.name} />
-  );
+  const renderUserData = (itemData: { item: UserDataType }) => {
+    status = !status;
+    return (
+      <UserComponent
+        data={itemData.item}
+        status={status === false ? "Pending" : "Active"}
+      />
+    );
+  };
 
   return (
-    <FlatList
-      data={data}
-      keyExtractor={(item: UserDataType) => item.id}
-      renderItem={renderUserData}
-    />
+    <View style={styles.screen}>
+      <FlatList
+        data={data}
+        keyExtractor={(item: UserDataType) => item.id}
+        renderItem={renderUserData}
+      />
+    </View>
   );
 };
 
 export default UsersScreen;
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 50,
+  },
+});
