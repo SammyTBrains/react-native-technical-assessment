@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import axios from "axios";
 import UserComponent from "../components/app/UserComponent";
 import { UserDataType } from "../type-utilities/type";
@@ -41,7 +47,7 @@ const UsersScreen = () => {
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 20, color: Colors.greyDark }}>Loading...</Text>
+        <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
   }
