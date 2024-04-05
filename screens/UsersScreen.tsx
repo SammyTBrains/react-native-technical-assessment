@@ -14,6 +14,8 @@ const UsersScreen = () => {
         console.error("Error:", error);
       }
     };
+
+    getData();
   }, []);
 
   return <Text>Users Screen</Text>;
