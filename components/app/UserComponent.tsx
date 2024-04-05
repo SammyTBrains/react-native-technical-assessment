@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { UserDataType } from "../../type-utilities/type";
+import { Colors } from "../../constants/colors";
 
 type Props = {
   data: UserDataType;
@@ -16,10 +17,14 @@ const UserComponent = (props: Props) => {
       <View
         style={[
           styles.statusContainer,
-          { backgroundColor: props.status === "Active" ? "#E1EAD6" : "" },
+          {
+            backgroundColor: props.status === "Active" ? Colors.greenLight : "",
+          },
         ]}
       >
-        <Text style={{ color: props.status === "Active" ? "#7A9F56" : "" }}>
+        <Text
+          style={{ color: props.status === "Active" ? Colors.appGreen : "" }}
+        >
           {props.status}
         </Text>
       </View>
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 13,
     padding: 15,
     height: 84,
-    backgroundColor: "#EFF2F7",
+    backgroundColor: Colors.greyLight,
     marginBottom: 1,
   },
   topText: {
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
   },
   secondText: {
     fontSize: 11,
-    color: "#6E717C",
+    color: Colors.greyDark,
   },
   statusContainer: {
     borderRadius: 17,
