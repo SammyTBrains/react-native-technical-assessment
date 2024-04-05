@@ -3,19 +3,23 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import axios from "axios";
 import UserComponent from "../components/app/UserComponent";
 import { UserDataType } from "../type-utilities/type";
+import { Colors } from "../constants/colors";
 
 const UsersScreen = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   let status = false;
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/users"
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -33,6 +37,14 @@ const UsersScreen = () => {
       />
     );
   };
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ fontSize: 20, color: Colors.greyDark }}>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.screen}>
