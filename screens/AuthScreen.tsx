@@ -14,6 +14,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootNavParamList } from "../type-utilities/type";
+import { Colors } from "../constants/colors";
 
 type FormData = {
   email: string;
@@ -152,13 +153,13 @@ const styles = StyleSheet.create({
   },
   logoImage: { marginBottom: 42 },
   infoText: {
-    color: "#6E717C",
+    color: Colors.greyDark,
     fontSize: 16,
     textAlign: "center",
     marginBottom: 5,
   },
   topText: {
-    color: "#322B8C",
+    color: Colors.appPurple,
     fontWeight: "bold",
     fontSize: 32,
     marginBottom: 14,
@@ -173,11 +174,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#EFF2F7",
+    borderColor: Colors.greyLight,
     borderRadius: 16,
     marginVertical: 10,
     paddingHorizontal: 15,
-    backgroundColor: "#F9FAFC",
+    backgroundColor: Colors.appGrey,
   },
   icon: {
     marginRight: 10,
@@ -185,10 +186,10 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 54,
-    backgroundColor: "#F9FAFC",
+    backgroundColor: Colors.appGrey,
   },
   forgotText: {
-    color: "#FF8600",
+    color: Colors.appOrange,
     fontSize: 14,
   },
 
@@ -200,10 +201,10 @@ const styles = StyleSheet.create({
   },
   authStateText: {
     fontSize: 14,
-    color: "#6E717C",
+    color: Colors.greyDark,
   },
   authStateButtonText: {
-    color: "#FF8600",
+    color: Colors.appOrange,
     fontSize: 14,
   },
   errorText: {
