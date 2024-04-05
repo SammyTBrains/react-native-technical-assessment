@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 20,
+    marginRight: 13,
   },
   initials: { fontSize: 16 },
   topText: {
