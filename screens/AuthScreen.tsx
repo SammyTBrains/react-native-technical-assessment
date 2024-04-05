@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
     color: Colors.appOrange,
     fontSize: 14,
   },
-
   authStateContainer: {
     flexDirection: "row",
     alignItems: "center",
