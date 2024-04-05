@@ -31,8 +31,6 @@ const UsersScreen = () => {
         data={data}
         keyExtractor={(item) => item.id}
         renderItem={renderExpenseItem}
-        onRefresh={props.onRefresh}
-        refreshing={props.refreshing}
       />
     </>
   );
