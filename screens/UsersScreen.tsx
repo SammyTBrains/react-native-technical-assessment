@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { FlatList, Text } from "react-native";
 import axios from "axios";
 import UserComponent from "../components/app/UserComponent";
 import { DataType } from "../type-utilities/type";
@@ -27,6 +27,13 @@ const UsersScreen = () => {
       {data.map((data: DataType) => (
         <UserComponent key={data.id} data={data.name} />
       ))}
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={renderExpenseItem}
+        onRefresh={props.onRefresh}
+        refreshing={props.refreshing}
+      />
     </>
   );
 };
