@@ -26,12 +26,7 @@ const UserComponent = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
+      <View style={styles.userDetailsContainer}>
         <View style={styles.initialsContainer}>
           <Text style={styles.initials}>{getInitials(props.data.name)}</Text>
         </View>
@@ -70,6 +65,10 @@ const styles = StyleSheet.create({
     height: 84,
     backgroundColor: Colors.greyLight,
     marginBottom: 1,
+  },
+  userDetailsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   initialsContainer: {
     backgroundColor: "white",
