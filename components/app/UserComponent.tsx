@@ -10,10 +10,10 @@ const UserComponent = (props: Props) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text>{props.data.username}</Text>
-        <Text>{props.data.name}</Text>
+        <Text style={styles.topText}>{props.data.username}</Text>
+        <Text style={styles.secondText}>{props.data.name}</Text>
       </View>
-      <View>
+      <View style={styles.statusContainer}>
         <Text>{props.status}</Text>
       </View>
     </View>
@@ -32,5 +32,19 @@ const styles = StyleSheet.create({
     height: 84,
     backgroundColor: "#EFF2F7",
     marginBottom: 1,
+  },
+  topText: {
+    fontSize: 13,
+    marginBottom: 3,
+  },
+  secondText: {
+    fontSize: 11,
+    color: "#6E717C",
+  },
+  statusContainer: {
+    borderRadius: 17,
+    borderWidth: 2,
+    borderColor: "white",
+    padding: 8,
   },
 });
