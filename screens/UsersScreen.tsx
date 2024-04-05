@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import axios from "axios";
 import UserComponent from "../components/app/UserComponent";
 import { UserDataType } from "../type-utilities/type";
@@ -46,7 +40,7 @@ const UsersScreen = () => {
 
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.loadingView}>
         <ActivityIndicator size="large" color={Colors.greyDark} />
       </View>
     );
@@ -70,5 +64,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 30,
+  },
+  loadingView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
