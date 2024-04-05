@@ -10,8 +10,8 @@ const UserComponent = (props: Props) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.topText}>{props.data.username}</Text>
-        <Text style={styles.secondText}>{props.data.name}</Text>
+        <Text style={styles.topText}>{props.data.name}</Text>
+        <Text style={styles.secondText}>{props.data.email}</Text>
       </View>
       <View
         style={[
