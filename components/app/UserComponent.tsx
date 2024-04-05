@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
   },
   initialsContainer: {
     backgroundColor: "white",
-    width: 48,
-    height: 48,
+    width: 50,
+    height: 50,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
