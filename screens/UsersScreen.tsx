@@ -23,7 +23,7 @@ const UsersScreen = () => {
   }, []);
 
   const renderUserData = (data: UserDataType) => (
-    <UserComponent key={data.id} data={data.name} />
+    <UserComponent data={data.name} />
   );
 
   return (
