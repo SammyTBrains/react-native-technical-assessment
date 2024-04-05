@@ -22,14 +22,14 @@ const UsersScreen = () => {
     getData();
   }, []);
 
-  const renderUserData = (itemData: { data: UserDataType }) => (
-    <UserComponent data={itemData.data.name} />
+  const renderUserData = (itemData: { item: UserDataType }) => (
+    <UserComponent data={itemData.item.name} />
   );
 
   return (
     <FlatList
       data={data}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item: UserDataType) => item.id}
       renderItem={renderUserData}
     />
   );
