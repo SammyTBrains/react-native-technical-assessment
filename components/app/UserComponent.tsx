@@ -29,6 +29,7 @@ const UserComponent = (props: Props) => {
       <View
         style={{
           flexDirection: "row",
+          alignItems: "center",
         }}
       >
         <View style={styles.initialsContainer}>
