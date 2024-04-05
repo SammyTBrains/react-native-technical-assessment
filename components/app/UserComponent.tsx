@@ -26,12 +26,14 @@ const UserComponent = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.initialsContainer}>
-        <Text style={styles.initials}>{getInitials(props.data.name)}</Text>
-      </View>
-      <View>
-        <Text style={styles.topText}>{props.data.name}</Text>
-        <Text style={styles.secondText}>{props.data.email}</Text>
+      <View style={{ flexDirection: "row" }}>
+        <View style={styles.initialsContainer}>
+          <Text style={styles.initials}>{getInitials(props.data.name)}</Text>
+        </View>
+        <View>
+          <Text style={styles.topText}>{props.data.name}</Text>
+          <Text style={styles.secondText}>{props.data.email}</Text>
+        </View>
       </View>
       <View
         style={[
