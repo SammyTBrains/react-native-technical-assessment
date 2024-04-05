@@ -50,8 +50,7 @@ export default UsersScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     paddingTop: 50,
+    paddingHorizontal: 40,
   },
 });
