@@ -30,8 +30,6 @@ type AuthScreenProps = {
 };
 
 const AuthScreen = (props: AuthScreenProps) => {
-  const [authState, setAuthState] = useState("login");
-
   const {
     control,
     handleSubmit,
@@ -128,14 +126,10 @@ const AuthScreen = (props: AuthScreenProps) => {
           <Text style={styles.errorText}>{errors.password.message}</Text>
         )}
       </View>
-      <CustomButtonA onPress={handleSubmit(onSubmit)}>
-        {authState == "login" ? "Login" : "Sign up"}
-      </CustomButtonA>
+      <CustomButtonA onPress={handleSubmit(onSubmit)}>Login</CustomButtonA>
       <View style={styles.authStateContainer}>
         <TouchableOpacity>
-          <Text style={styles.authStateButtonText}>
-            {authState == "login" ? "Sign up" : "Login"}
-          </Text>
+          <Text style={styles.authStateButtonText}>Sign up</Text>
         </TouchableOpacity>
         <Text style={styles.authStateText}> instead</Text>
       </View>

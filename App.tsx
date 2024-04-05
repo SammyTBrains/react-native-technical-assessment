@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AuthScreen from "./screens/AuthScreen";
 import UsersScreen from "./screens/UsersScreen";
-import { Colors } from "./constants/colors";
 
 const Stack = createNativeStackNavigator();
 
