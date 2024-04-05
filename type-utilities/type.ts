@@ -3,7 +3,7 @@ export type RootNavParamList = {
   UsersScreen: undefined;
 };
 
-export type DataType = {
+export type UserDataType = {
   id: string;
   name: string;
   username: string;
